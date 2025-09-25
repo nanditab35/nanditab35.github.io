@@ -4,25 +4,20 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <head>
-  <!--<link rel="shortcut icon" href="https://scholar.harvard.edu/profiles/openscholar/themes/hwpi_basetheme/favicon.png" />-->
   <title>Nandita Bhattacharya's Homepage</title>
   <meta charset="UTF-8">
   <style>
     ul#menu li {
       display: inline;
     }
-
     div#frame {
       width: 80%;
       font-size: 15
     }
-
-
     a:link {
       text-decoration: none;
       color: blue;
     }
-
     a:visited {
       text-decoration: none;
       color: blue;
@@ -39,42 +34,33 @@
           <h2>Nandita Bhattacharya</h2>
         </div>
         <div id="buttons" style="float: right; top: 50%; margin-top:1%; margin-right: 15%; margin-left: 7%">
-          <button class="w3-bar-item w3-button" onclick="location.href='#my_work'">My Work</button>
+          <!--<button class="w3-bar-item w3-button" onclick="location.href='#my_work'">My Work</button>
           <button class="w3-bar-item w3-button" onclick="location.href='#my_tech_blogs'">My Tech Blog</button>
           <button class="w3-bar-item w3-button" onclick="location.href='#my_art'">My Art</button>
-          <button class="w3-bar-item w3-button" onclick="location.href='#my_blog'">My Blog</button>
+          <button class="w3-bar-item w3-button" onclick="location.href='#my_blog'">My Blog</button>-->
+          
+          <button class="tab-button active" onclick="openTab('work.html', this)">About Me</button>
+          <button class="tab-button" onclick="openTab('tech_blog.html', this)">Tech Blog</button>
+          <button class="tab-button" onclick="openTab('art.html', this)">My Art</button>
+          <button class="tab-button" onclick="openTab('blog.html', this)">My Blog</button>
         </div>
       </div>
-      <div id="my_work" style="overflow: hidden">
-        <!--<div style="width: 35%; float: left; margin-right: 5%; margin-top: 20%"> <img style="width:90%;border-radius:20px ! important;"
-            src="references/Headshot.JPG" alt="Nandita"> </div>-->
-        <div style="float: center;margin-top: 8%">
-          <h2><a id="work_summary">Summary</a></h2>
-          <ul>
-            <li>Currently working at Samsung R&D (SSIR) as Machine Learning Staff Engineer.</li>
-            <li>Total work experience of 11 years, relevant work experience of 8 yrs in Machine Learning & Data Science domain. Having experience in Machine Learning, Deep Learning, Computer Vision & NLP, GenAI, RAG, Agentic AI.</li>
-            <li>Hands-on experience in Python, Pytorch, Tensorflow, Keras, Docker, Kubernetes and knowledge of Cloud services such as Amazon AWS.</li>
-            <li>Completed M.Tech in Computer Science and Engineering from IIEST, Shibpur.</li>
-            <li>Published first-author IEEE research papers, combining research with real-world innovation.</li>
-            <a id="linkedin" href="https://www.linkedin.com/in/nandita-bhattacharya-24754539/">LinkedIn Profile</a>
-          </ul>
-          <h2><a id="work_skills">Skills</a></h2>
-          <ul>
-            <li>Python, PyTorch, TensorFlow, TorchVision, TFLite, ONNX</li>
-            <li>CNN, RNN, Transformers, LLM, RAG, Building AI Agents</li>
-            <li>LangChain, LangGraph, FastAPI, Docker, Kubernetes</li>
-            <li>SQL, SQLite, Neo4j, FAISS</li>
-            <li>Generative AI, NLP, Computer Vision, Meta-learning, Few-shot learning, Multi-modal learning, Domain-adaptation, Semi-supervised learning</li>
-          </ul>
-          <h2><a id="work_timeline">Timeline</a></h2>
-          <p>Coming soon...</p>
-          <h2><a id="work_papers">Publications</a></h2>
-          <ul>
-            <li>First Author of <a href=https://ieeexplore.ieee.org/document/10838038/>"Data Drift Quantification Metrics for Month-on-Month Semiconductor Data" — IEEE WinTechCon 2024</a>.</li>
-            <li>First Author of <a href=https://ieeexplore.ieee.org/document/7732340/>"Image Retrieval using Extended Bag-of-Visual-Words" - IEEE ICACCI 2016</a>.</li>
-          </ul>
-        </div>
-        </div>
+      <!-- Content Frame -->
+    <iframe id="tabFrame" class="tab-frame" src="work.html"></iframe>
+
+    <script>
+        function openTab(pageUrl, buttonElement) {
+            // Update the iframe source
+            document.getElementById('tabFrame').src = pageUrl;
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            buttonElement.classList.add('active');
+        }
+    </script>
       </div>
     </div>
 </body>
