@@ -38,6 +38,186 @@
             margin: 0;
         }
         h1 { color: #333; }
+        /** Career Timeline Styles - START **/
+        /* Main Timeline Container */
+          .horizontal-timeline {
+              display: flex;
+              overflow-x: auto;
+              padding: 60px 40px;
+              position: relative;
+              gap: 0;
+              scrollbar-width: thin;
+              scrollbar-color: #667eea #f1f1f1;
+          }
+          
+          /* Custom scrollbar for webkit browsers */
+          .horizontal-timeline::-webkit-scrollbar {
+              height: 8px;
+          }
+          
+          .horizontal-timeline::-webkit-scrollbar-track {
+              background: #f1f1f1;
+              border-radius: 10px;
+          }
+          
+          .horizontal-timeline::-webkit-scrollbar-thumb {
+              background: #667eea;
+              border-radius: 10px;
+          }
+          
+          /* Timeline Track Line */
+          .timeline-track {
+              position: absolute;
+              top: 100px;
+              left: 0;
+              right: 0;
+              height: 4px;
+              background: linear-gradient(90deg, #667eea, #764ba2);
+              z-index: 1;
+          }
+          
+          /* Individual Timeline Items */
+          .timeline-item {
+              position: relative;
+              min-width: 320px;
+              padding: 0 40px;
+              z-index: 2;
+              flex-shrink: 0;
+          }
+          
+          /* Timeline Marker (Year/Circle) */
+          .timeline-marker {
+              width: 60px;
+              height: 60px;
+              background: white;
+              border: 4px solid #667eea;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-weight: bold;
+              color: #667eea;
+              margin: 0 auto 20px auto;
+              position: relative;
+              z-index: 3;
+              transition: all 0.3s ease;
+              box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+          }
+          
+          .timeline-item:hover .timeline-marker {
+              background: #667eea;
+              color: white;
+              transform: scale(1.1);
+              box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+          }
+          
+          /* Timeline Content Cards */
+          .timeline-content {
+              background: white;
+              padding: 25px;
+              border-radius: 12px;
+              box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+              border-left: 4px solid #667eea;
+              transition: all 0.3s ease;
+              position: relative;
+          }
+          
+          .timeline-item:hover .timeline-content {
+              transform: translateY(-5px);
+              box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+          }
+          
+          /* Content Styling */
+          .timeline-content h3 {
+              margin: 0 0 8px 0;
+              color: #333;
+              font-size: 1.3em;
+          }
+          
+          .timeline-company {
+              color: #667eea;
+              font-weight: 600;
+              margin-bottom: 12px;
+              font-style: italic;
+          }
+          
+          .timeline-description {
+              color: #666;
+              line-height: 1.6;
+              margin-bottom: 15px;
+          }
+          
+          /* Skills Tags */
+          .timeline-skills {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 6px;
+              margin-top: 15px;
+          }
+          
+          .skill-tag {
+              background: #f0f0f0;
+              padding: 4px 12px;
+              border-radius: 20px;
+              font-size: 0.8em;
+              color: #555;
+          }
+          
+          /* Connector Lines Between Items */
+          .timeline-item::after {
+              content: '';
+              position: absolute;
+              top: 30px;
+              right: -20px;
+              width: 40px;
+              height: 2px;
+              background: #667eea;
+              z-index: 2;
+          }
+          
+          .timeline-item:last-child::after {
+              display: none;
+          }
+          
+          /* Responsive Design */
+          @media (max-width: 768px) {
+              .horizontal-timeline {
+                  padding: 40px 20px;
+                  flex-direction: column;
+                  overflow-x: visible;
+              }
+              
+              .timeline-track {
+                  display: none;
+              }
+              
+              .timeline-item {
+                  min-width: 100%;
+                  padding: 0;
+                  margin-bottom: 40px;
+              }
+              
+              .timeline-item::after {
+                  display: none;
+              }
+              
+              .timeline-marker {
+                  margin-bottom: 15px;
+              }
+          }
+          
+          /* Animation for scroll */
+          .timeline-item {
+              opacity: 0;
+              transform: translateY(30px);
+              transition: opacity 0.6s ease, transform 0.6s ease;
+          }
+          
+          .timeline-item.visible {
+              opacity: 1;
+              transform: translateY(0);
+          }
+        /** Career Timeline Styles - END **/
       </style>
   </head>
 
@@ -74,7 +254,61 @@
             <li>Generative AI, NLP, Computer Vision, Meta-learning, Few-shot learning, Multi-modal learning, Domain-adaptation, Semi-supervised learning</li>
           </ul>
           <h2><a id="work_timeline" style="font-family: sans-serif;">Tech Career Timeline</a></h2>
-          <p>Coming soon...</p>
+          <!-- <p>Coming soon...</p> -->
+          <div class="horizontal-timeline">
+              <div class="timeline-track"></div>
+              
+              <div class="timeline-item">
+                  <div class="timeline-marker">Nov-2010 to Oct-2011</div>
+                  <div class="timeline-content">
+                      <h4>Software Engineer (Full-stack in .Net domain)</h4>
+                      <p>Lets-E Software and Services</p>
+                  </div>
+              </div>
+              <div class="timeline-item">
+                  <div class="timeline-marker">Feb-2012 to Dec-2013</div>
+                  <div class="timeline-content">
+                      <h4>Software Engineer (Full-stack in .Net domain)</h4>
+                      <p>Nalco Water India (via Akshay Associate as contractor)</p>
+                  </div>
+              </div>
+              <div class="timeline-item">
+                  <div class="timeline-marker">Sep-2016 to Dec-2017</div>
+                  <div class="timeline-content">
+                      <h4>Research Assistant</h4>
+                      <p>Indian Statistical Institute, Kolkata</p>
+                  </div>
+              </div>
+              <div class="timeline-item">
+                  <div class="timeline-marker">May-2018 to Mar-2019</div>
+                  <div class="timeline-content">
+                      <h4>Data Scientist</h4>
+                      <p>Business Studio Private Limited</p>
+                  </div>
+              </div>
+              <div class="timeline-item">
+                  <div class="timeline-marker">May-2018 to Mar-2019</div>
+                  <div class="timeline-content">
+                      <h4>Data Scientist</h4>
+                      <p>Business Studio Private Limited</p>
+                  </div>
+              </div>
+              <div class="timeline-item">
+                  <div class="timeline-marker">Mar-2019 to Sep-2022</div>
+                  <div class="timeline-content">
+                      <h4>Data Scientist (Deep Learning, NLP & Computer Vision)</h4>
+                      <p>Wipro Limited</p>
+                  </div>
+              </div>
+              <div class="timeline-item">
+                  <div class="timeline-marker">Sep-2022 to Present</div>
+                  <div class="timeline-content">
+                      <h4>Staff Engineer, Machine Learning</h4>
+                      <p>Samsung Semiconductor India Research (SSIR)</p>
+                  </div>
+              </div>
+              <!-- More items -->
+              </div>
           <h2><a id="work_papers" style="font-family: sans-serif;">Publications</a></h2>
           <ul style="font-family: sans-serif;">
             <li>First Author of <a href=https://ieeexplore.ieee.org/document/10838038/ target="_blank" rel="noopener noreferrer">"Data Drift Quantification Metrics for Month-on-Month Semiconductor Data" — IEEE WinTechCon 2024</a>.</li>
